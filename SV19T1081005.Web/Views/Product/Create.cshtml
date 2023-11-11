@@ -1,0 +1,103 @@
+﻿@model SV19T1081005.DomainModel.Product
+@{
+    @* ViewBag.Title = "Bổ sung mặt hàng";*@
+}
+
+<div class="box box-primary">
+    <div class="box-header with-border ">
+    </div>
+
+    <div class="box-body">
+        <form class="form-horizontal" action="~/product/save" method="post" enctype="multipart/form-data">
+            @Html.HiddenFor(m => m.ProductID)
+            <div class="form-group">
+                <label class="control-label col-sm-2">Tên mặt hàng:</label>
+                <div class="col-sm-10">
+                    @*<input type="text" class="form-control" name="ProductName" autofocus>*@
+                    @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control", @autofocus = "autofocus" })
+                    @Html.ValidationMessageFor(m => m.ProductName, "", new { @style = "color:red" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Loại hàng:</label>
+                <div class="col-sm-10">
+                    @Html.DropDownListFor(m => m.CategoryID, SelectListHelper.Categories(), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.CategoryID, "", new { @style = "color:red" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Đơn vị tính:</label>
+                <div class="col-sm-10">
+                    @*<input type="text" class="form-control" name="Unit" autofocus>*@
+                    @Html.TextBoxFor(m => m.Unit, new { @class = "form-control" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Giá hàng:</label>
+                <div class="col-sm-10">
+                    @*<input type="text" class="form-control" name="Price">*@
+                    <input class="form-control" type="number" min="0" name="Price" />
+                    @*@Html.TextBoxFor(m => m.Price, new { htmlAttributes = new { @type = "number", @min = "0", @step = "1", @value = "5", @class = "form-control" } })*@
+
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Nhà cung cấp:</label>
+                <div class="col-sm-10">
+                    @Html.DropDownListFor(m => m.SupplierID, SelectListHelper.Suppliers(), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.SupplierID, "", new { @style = "color:red" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Ảnh minh họa:</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" name="uploadPhoto" accept="image/*"
+                           onchange="document.getElementById('Photo').src = window.URL.createObjectURL(this.files[0])" />
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10">
+                    @if (Model.Photo.IsEmpty())
+                    {
+                        <img src="~/images/employees/add-image.png" id="Photo" class="img" style="width:200px; height: 200px" />
+
+                    }
+                    else
+                    {
+
+                        <img src="@Model.Photo" id="Photo" class="img" style="width:200px; height: 200px" />
+                    }
+                </div>
+            </div>
+
+            @Html.HiddenFor(m => m.Photo, new { Value = Model.Photo})
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-save"></i> Lưu dữ liệu
+                    </button>
+                    <a class="btn btn-warning" href="~/product">
+                        <i class="fa fa-ban"></i> Quay lại
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="box-footer text-center">
+    </div>
+
+</div>
+
+
+

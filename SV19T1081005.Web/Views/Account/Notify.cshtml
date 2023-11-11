@@ -1,0 +1,31 @@
+﻿<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Đổi mật khẩu thành công!</h4>
+    <p>Sẽ đi đến trang chủ sau <span class="text-bold" id="giay"></span></p>
+    <hr>
+</div>
+
+<a id="backhome" href="~/home" class="btn btn-default">
+    <i class="fa fa-home"></i> Quay lại trang chủ
+</a>
+
+
+@section scripts{
+    <script>
+        function start(sec) {
+            if (sec == -1) {
+                clearTimeout(timeout);
+                document.querySelector("#backhome").click();
+                return false;
+            }
+
+            document.getElementById('giay').innerText = sec.toString()+"s";
+
+            timeout = setTimeout(function () {
+                sec--;
+                start(sec);
+            }, 1000);
+        };
+
+        start(5);
+    </script>
+}

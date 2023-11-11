@@ -1,0 +1,64 @@
+﻿@model SV19T1081005.Web.Models.PaginationSearchInput
+@{
+    ViewBag.Title = "Loại hàng";
+    List<SelectListItem> listPageSizes = new List<SelectListItem>();
+    listPageSizes.Add(new SelectListItem() { Value = "5", Text = "5" });
+    listPageSizes.Add(new SelectListItem() { Value = "10", Text = "10" });
+    listPageSizes.Add(new SelectListItem() { Value = "15", Text = "15" });
+    listPageSizes.Add(new SelectListItem() { Value = "20", Text = "20" });
+}
+<div class="box box-">
+    <div class="box-header with-border">
+
+    </div>
+    <div class="box-body">
+        <form id="searchInput" action="~/category/search" method="post" class="">
+            <div class="row">
+                <div class="col-sm-1">
+                    @Html.DropDownListFor(m => m.PageSize, listPageSizes, new { @class = "form-control", @onchange = "getPageSize()" })
+                </div>
+                <div class="col-lg-11">
+                    <div class="input-group">
+                        <input autofocus value="@Model.SearchValue" type="text" name="searchValue" class="form-control" placeholder="Tên loại hoặc mô tả ...">
+                        <span class="input-group-btn">
+                            <button type="submit" name="search" id="search-btn" class="btn btn-flat btn-info">
+                                <i class="fa fa-search"></i>
+                            </button>
+
+                            <a href="~/category/create" class="btn btn-flat btn-primary"
+                               style="margin-left: 5px">
+                                <i class="fa fa-plus"></i> Thêm loại hàng
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+        <div id="searchResult">
+
+        </div>
+    </div>
+    <!-- /.box-body -->
+    <!-- /.box-footer-->
+</div>
+@section scripts{
+    <script>
+         function getPageSize() {
+            doSearch(@Model.Page);
+            $("#searchInput").submit(function (e) {
+                e.preventDefault();
+                doSearch(1);
+            });
+        };
+
+        $(document).ready(function () {
+            doSearch(@Model.Page);
+            $("#searchInput").submit(function (e) {
+                e.preventDefault();
+                doSearch(1);
+            });
+        });
+    </script>
+}
+

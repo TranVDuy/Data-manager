@@ -1,0 +1,78 @@
+﻿@model SV19T1081005.Web.Models.ProductPaginationResult
+@{
+    Layout = null;
+}
+
+
+<p>Có <strong>@Model.RowCount</strong> Mặt Hàng trong tổng số <strong>@Model.PageCount</strong> Trang</p>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr class="bg-primary">
+                <th style="width:80px">Ảnh</th>
+                <th>Tên mặt hàng</th>
+                <th>Đơn vị tính</th>
+                <th>Giá</th>
+                <th>Xem chi tiết</th>
+                <th style="width:75px">&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Data)
+            {
+                <tr>
+                    <td>
+                        @if (item.Photo != "")
+                        {
+
+                            <img src="@item.Photo" style="width:80px" />
+                        }
+                        else
+                        {
+                            <img src="~/images/products/no-image.png" style="width:80px" />
+                        }
+                    </td>
+                    <td style="vertical-align:middle">@item.ProductName</td>
+                    <td style="vertical-align:middle">@item.Unit</td>
+                    <td style="vertical-align:middle">@item.Price</td>
+                    <td style="vertical-align:middle">
+                        <a href="~/supplier/searchfromproduct/@item.SupplierID" class="btn btn-xs btn-flat btn-success">
+                            Nhà cung cấp
+                        </a>
+                        <a href="~/category/searchfromproduct/@item.CategoryID" class="btn btn-xs btn-flat btn-warning">
+                            Loại hàng
+                        </a>
+
+                    </td>
+                    <td class="text-right" style="vertical-align:middle">
+                        <a href="~/product/edit/@item.ProductID" class="btn btn-xs btn-flat btn-info">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="~/product/delete/@item.ProductID" class="btn btn-xs btn-flat btn-danger">
+                            <i class="fa fa-remove"></i>
+                        </a>
+
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="box-footer text-center">
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            if (i == Model.Page)
+            {
+                <li class="active"><a href="#">@i</a></li>
+            }
+            else
+            {
+                <li><a href="javascript:;" onclick="doSearch(@i)">@i</a></li>
+            }
+        }
+    </ul>
+</div>
+

@@ -1,0 +1,62 @@
+﻿@model SV19T1081005.Web.Models.CategoryPaginationResult
+@{
+    Layout = null;
+}
+
+<p>Có <strong>@Model.RowCount</strong> @ViewBag.Title trong tổng số <strong>@Model.PageCount</strong> trang</p>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="bg-primary">
+            <tr>
+                <th>STT</th>
+                <th>Tên loại hàng</th>
+                <th>Mô tả</th>
+                <th>Mặt hàng</th>
+                <th style="width: 70px"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int stt = 0;}
+            @foreach (var item in Model.Data)
+            {
+                stt++;
+                <tr>
+                    <td>@stt</td>
+                    <td>@item.CategoryName</td>
+                    <td>@item.Description</td>
+                    <td>
+                        <a href="~/product/viewdetailproduct/category/@item.CategoryID" class="btn btn-flat btn-sm btn-success">
+                            <i class="fa fa-eye"> Xem chi tiết</i>
+                        </a>
+                    </td>
+                    <td class="text-right">
+                        <a href="~/category/edit/@item.CategoryID" class="btn btn-flat btn-xs btn-primary">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="~/category/delete/@item.CategoryID" class="btn btn-flat btn-xs btn-danger">
+                            <i class="fa fa-remove"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+</div>
+<div class="box-footer text-center">
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            if (i == Model.Page)
+            {
+                <li class="active"><a href="~/category?page=@i&searchValue=@Model.SearchValue">@i</a></li>
+
+            }
+            else
+            {
+                <li><a href="~/category?page=@i&searchValue=@Model.SearchValue">@i</a></li>
+            }
+        }
+    </ul>
+</div>

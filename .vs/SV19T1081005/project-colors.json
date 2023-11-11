@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "40b7691a-1539-4560-b8c7-b51f2b8fda8c": {
+      "ProjectGuid": "40b7691a-1539-4560-b8c7-b51f2b8fda8c",
+      "DisplayName": "SV19T1081005.BusinessLayer",
+      "ColorIndex": 0
+    },
+    "dd22e1d2-8bb5-4edd-8341-abf3dcfe75ad": {
+      "ProjectGuid": "dd22e1d2-8bb5-4edd-8341-abf3dcfe75ad",
+      "DisplayName": "SV19T1081005.Web",
+      "ColorIndex": 1
+    },
+    "52f7d8e9-3544-4ed7-b2f7-fe58d6cb06ed": {
+      "ProjectGuid": "52f7d8e9-3544-4ed7-b2f7-fe58d6cb06ed",
+      "DisplayName": "SV19T1081005.DataLayer",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

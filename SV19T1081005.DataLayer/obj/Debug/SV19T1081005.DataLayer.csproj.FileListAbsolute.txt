@@ -1,0 +1,9 @@
+E:\C#\Lập trình web\Solution\SV19T1081005\SV19T1081005.DataLayer\bin\Debug\SV19T1081005.DataLayer.dll
+E:\C#\Lập trình web\Solution\SV19T1081005\SV19T1081005.DataLayer\bin\Debug\SV19T1081005.DataLayer.pdb
+E:\C#\Lập trình web\Solution\SV19T1081005\SV19T1081005.DataLayer\obj\Debug\SV19T1081005.DataLayer.csproj.AssemblyReference.cache
+E:\C#\Lập trình web\Solution\SV19T1081005\SV19T1081005.DataLayer\obj\Debug\SV19T1081005.DataLayer.csproj.CoreCompileInputs.cache
+E:\C#\Lập trình web\Solution\SV19T1081005\SV19T1081005.DataLayer\obj\Debug\SV19T1081005.DataLayer.dll
+E:\C#\Lập trình web\Solution\SV19T1081005\SV19T1081005.DataLayer\obj\Debug\SV19T1081005.DataLayer.pdb
+E:\C#\Lập trình web\Solution\SV19T1081005\SV19T1081005.DataLayer\bin\Debug\SV19T1081005.DomainModel.dll
+E:\C#\Lập trình web\Solution\SV19T1081005\SV19T1081005.DataLayer\bin\Debug\SV19T1081005.DomainModel.pdb
+E:\C#\Lập trình web\Solution\SV19T1081005\SV19T1081005.DataLayer\obj\Debug\SV19T1081005.DataLayer.csproj.CopyComplete

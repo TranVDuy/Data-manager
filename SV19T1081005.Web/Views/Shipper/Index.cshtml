@@ -1,0 +1,59 @@
+﻿@model SV19T1081005.Web.Models.PaginationSearchInput
+@{
+    ViewBag.Title = "Người giao hàng";
+    List<SelectListItem> listPageSizes = new List<SelectListItem>();
+    listPageSizes.Add(new SelectListItem() { Value = "5", Text = "5" });
+    listPageSizes.Add(new SelectListItem() { Value = "10", Text = "10" });
+    
+}
+<div class="box box-">
+    <div class="box-header with-border">
+
+    </div>
+    <div class="box-body">
+        <form action="~/shipper/search" id="searchInput" class="">
+            <div class="row">
+                <div class="col-sm-1">
+                    @Html.DropDownListFor(m => m.PageSize, listPageSizes, new { @class = "form-control" })
+
+                </div>
+                <div class="col-sm-11">
+                    <div class="input-group">
+                        <input autofocus value="@Model.SearchValue" type="text" name="searchValue" class="form-control" placeholder="Tên hoặc sdt ...">
+                        <span class="input-group-btn">
+                            <button type="submit" name="search" id="search-btn" class="btn btn-flat btn-info">
+                                <i class="fa fa-search"></i>
+                            </button>
+
+                            <a href="~/shipper/create" class="btn btn-flat btn-primary"
+                               style="margin-left: 5px">
+                                <i class="fa fa-plus"></i> Thêm người giao hàng
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+        </form>
+
+        <div id="searchResult">
+
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        
+        $(document).ready(function () {
+            doSearch(@Model.Page);
+            $("#searchInput").submit(function (e) {
+                e.preventDefault();
+                doSearch(1);
+            });
+        });
+    </script>
+}
+
+
+

@@ -1,0 +1,65 @@
+﻿@model SV19T1081005.Web.Models.CustomerPaginationResult
+@{
+    Layout = null;
+}
+<p>Có <strong>@Model.RowCount</strong> @ViewBag.Title trong tổng số <strong>@Model.PageCount</strong> trang</p>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="bg-primary">
+            <tr>
+                <th>STT</th>
+                <th>Tên khách hàng</th>
+                <th>Tên giao dịch</th>
+                <th>Địa chỉ</th>
+                <th>Quốc gia</th>
+                <th>Thành phố</th>
+                <th>Mã bưu chính</th>
+                <th style="width: 70px"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int stt = 0;}
+            @foreach (var item in Model.Data)
+            {
+                stt++;
+                <tr>
+                    <td>@stt</td>
+                    <td>@item.CustomerName</td>
+                    <td>@item.ContactName</td>
+                    <td>@item.Address</td>
+                    <td>@item.Country</td>
+                    <td>@item.City</td>
+                    <td>@item.PostalCode</td>
+                    <td class="text-right">
+                        <a href="~/customer/edit/@item.CustomerID" class="btn btn-flat btn-xs btn-primary">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="~/customer/delete/@item.CustomerID" class="btn btn-flat btn-xs btn-danger">
+                            <i class="fa fa-remove"></i>
+                        </a>
+                    </td>
+                </tr>
+
+            }
+
+        </tbody>
+    </table>
+</div>
+<!-- /.box-body -->
+<div class="box-footer text-center">
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            if (i == Model.Page)
+            {
+                <li class="active"><a href="#">@i</a></li>
+
+            }
+            else
+            {
+                <li><a href="javascript:;" onclick="doSearch(@i)">@i</a></li>
+            }
+        }
+
+    </ul>
+</div>

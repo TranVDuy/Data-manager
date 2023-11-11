@@ -1,0 +1,5 @@
+E:\C#\Lập trình web\Solution\SV19T1081005\SV19T1081005.DomainModel\bin\Debug\SV19T1081005.DomainModel.dll
+E:\C#\Lập trình web\Solution\SV19T1081005\SV19T1081005.DomainModel\bin\Debug\SV19T1081005.DomainModel.pdb
+E:\C#\Lập trình web\Solution\SV19T1081005\SV19T1081005.DomainModel\obj\Debug\SV19T1081005.DomainModel.csproj.CoreCompileInputs.cache
+E:\C#\Lập trình web\Solution\SV19T1081005\SV19T1081005.DomainModel\obj\Debug\SV19T1081005.DomainModel.dll
+E:\C#\Lập trình web\Solution\SV19T1081005\SV19T1081005.DomainModel\obj\Debug\SV19T1081005.DomainModel.pdb
